@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - BrandCal</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+    <div id="navbar-root"></div>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <button class="btn-primary btn-block" id="create-event-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20">
+                        <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Create Event
+                </button>
+            </div>
+
+            <!-- Calendar Mini -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">This Month</div>
+                <div id="month-progress-text" style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Day 17 of 30</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="month-progress" style="width: 57%;"></div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Quick Stats</div>
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <div class="stat-label">Total</div>
+                        <div class="stat-value" id="total-events">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Upcoming</div>
+                        <div class="stat-value" id="upcoming-events">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">This Week</div>
+                        <div class="stat-value" id="this-week">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Views</div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item active" data-view="month">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <rect x="3" y="4" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M3 8h14M7 2v4M13 2v4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Month View
+                    </button>
+                    <button class="nav-item" data-view="week">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <rect x="2" y="4" width="3" height="12" rx="1" fill="currentColor"/>
+                            <rect x="7" y="4" width="3" height="12" rx="1" fill="currentColor"/>
+                            <rect x="12" y="4" width="3" height="12" rx="1" fill="currentColor"/>
+                        </svg>
+                        Week View
+                    </button>
+                    <button class="nav-item" data-view="agenda">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M3 4h14M3 8h14M3 12h14M3 16h14" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Agenda View
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Upcoming Events -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Upcoming</div>
+                <div class="upcoming-events-list" id="upcoming-list">
+                    <p class="text-muted" style="font-size: 0.875rem;">No upcoming events</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <div class="dashboard-header">
+                <div class="header-left">
+                    <h1 class="period-title" id="current-period">November 2025</h1>
+                </div>
+                <div class="header-right">
+                    <button class="btn-icon" id="prev-period" title="Previous">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M12 5l-5 5 5 5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+                    <button class="btn-secondary" id="today-btn">Today</button>
+                    <button class="btn-icon" id="next-period" title="Next">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M8 5l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+
+                    <div class="header-divider"></div>
+
+                    <button class="btn-icon" id="voice-btn" title="Voice Input">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M10 1a3 3 0 00-3 3v6a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M5 10a5 5 0 0010 0M10 15v4M7 19h6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+
+                    <button class="btn-icon" id="search-btn" title="Search">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M14 14l4 4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+
+                    <button class="btn-icon" id="export-btn" title="Export">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M6 10l4-4 4 4M10 6v9M3 17h14" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+
+                    <button class="btn-icon" id="print-btn" title="Print">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M5 7V3a1 1 0 011-1h8a1 1 0 011 1v4M5 13H4a2 2 0 01-2-2V9a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2h-1M5 13v4a1 1 0 001 1h8a1 1 0 001-1v-4M5 13h10" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+
+                    <button class="btn-icon" id="help-btn" title="Keyboard Shortcuts">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M10 6v4M10 14v.01" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+
+                    <button class="btn-icon" id="dashboard-theme-toggle" title="Toggle Theme">
+                        <svg width="20" height="20" viewBox="0 0 20 20" class="sun-icon" style="display: none;">
+                            <circle cx="10" cy="10" r="4" fill="currentColor"/>
+                            <path d="M10 1v2M10 17v2M18 10h-2M4 10H2M15.66 4.34l-1.41 1.41M5.75 14.25l-1.41 1.41M15.66 15.66l-1.41-1.41M5.75 5.75L4.34 4.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" class="moon-icon">
+                            <path d="M17 10.5A7 7 0 119.5 3a6 6 0 007.5 7.5z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Actions Bar -->
+            <div class="quick-actions-bar">
+                <button class="quick-action">
+                    <span class="action-icon">⚡</span>
+                    <span>Quick Add</span>
+                </button>
+                <button class="quick-action">
+                    <span class="action-icon">🔄</span>
+                    <span>Sync</span>
+                </button>
+                <button class="quick-action">
+                    <span class="action-icon">📊</span>
+                    <span>Analytics</span>
+                </button>
+                <button class="quick-action">
+                    <span class="action-icon">👥</span>
+                    <span>Team</span>
+                </button>
+                <button class="quick-action">
+                    <span class="action-icon">⚙️</span>
+                    <span>Settings</span>
+                </button>
+            </div>
+
+            <!-- Calendar Container -->
+            <div id="calendar-container">
+                <!-- Calendar will be rendered here by JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Event Modal -->
+    <div id="event-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Create Event</h2>
+                <button class="btn-icon" id="close-modal">
+                    <svg width="20" height="20" viewBox="0 0 20 20">
+                        <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+            <form id="event-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="event-title">Event Title *</label>
+                        <input type="text" id="event-title" name="title" required maxlength="100" placeholder="Team Meeting">
+                        <div style="text-align: right; font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.25rem;">
+                            <span id="title-counter">0/100</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event-date">Date *</label>
+                            <input type="date" id="event-date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-time">Time *</label>
+                            <input type="time" id="event-time" name="time" required value="12:00">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event-duration">Duration (minutes)</label>
+                            <select id="event-duration" name="duration">
+                                <option value="15">15 minutes</option>
+                                <option value="30">30 minutes</option>
+                                <option value="60" selected>1 hour</option>
+                                <option value="90">1.5 hours</option>
+                                <option value="120">2 hours</option>
+                                <option value="180">3 hours</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-category">Category</label>
+                            <select id="event-category" name="category">
+                                <option value="general">General</option>
+                                <option value="work">Work</option>
+                                <option value="personal">Personal</option>
+                                <option value="meeting">Meeting</option>
+                                <option value="event">Event</option>
+                                <option value="health">Health</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Color</label>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button type="button" class="color-option selected" data-color="#0577FF" style="width: 2rem; height: 2rem; border-radius: 50%; background: #0577FF; border: 2px solid var(--border);"></button>
+                            <button type="button" class="color-option" data-color="#8B5CF6" style="width: 2rem; height: 2rem; border-radius: 50%; background: #8B5CF6; border: 2px solid var(--border);"></button>
+                            <button type="button" class="color-option" data-color="#10B981" style="width: 2rem; height: 2rem; border-radius: 50%; background: #10B981; border: 2px solid var(--border);"></button>
+                            <button type="button" class="color-option" data-color="#F59E0B" style="width: 2rem; height: 2rem; border-radius: 50%; background: #F59E0B; border: 2px solid var(--border);"></button>
+                            <button type="button" class="color-option" data-color="#EF4444" style="width: 2rem; height: 2rem; border-radius: 50%; background: #EF4444; border: 2px solid var(--border);"></button>
+                            <button type="button" class="color-option" data-color="#EC4899" style="width: 2rem; height: 2rem; border-radius: 50%; background: #EC4899; border: 2px solid var(--border);"></button>
+                        </div>
+                        <input type="hidden" id="event-color" name="color" value="#0577FF">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="event-description">Description</label>
+                        <textarea id="event-description" name="description" rows="3" placeholder="Add event details..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="event-location">Location</label>
+                        <input type="text" id="event-location" name="location" placeholder="Meeting Room A">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="event-attendees">Attendees (comma-separated)</label>
+                        <input type="text" id="event-attendees" name="attendees" placeholder="john@example.com, jane@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button type="button" class="priority-btn" data-priority="low" style="padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-primary);">Low</button>
+                            <button type="button" class="priority-btn active" data-priority="medium" style="padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-primary);">Medium</button>
+                            <button type="button" class="priority-btn" data-priority="high" style="padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-primary);">High</button>
+                        </div>
+                        <input type="hidden" id="event-priority" name="priority" value="medium">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Reminders</label>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="reminder" value="5">
+                                <span>5 minutes before</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="reminder" value="15" checked>
+                                <span>15 minutes before</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="reminder" value="60">
+                                <span>1 hour before</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="reminder" value="1440">
+                                <span>1 day before</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="recurring-toggle" name="recurring">
+                            <span>Recurring Event</span>
+                        </label>
+                    </div>
+
+                    <div id="recurring-options" style="display: none;">
+                        <div class="form-group">
+                            <label>Repeat</label>
+                            <select name="recurring-type">
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="yearly">Yearly</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="event-notes">Notes</label>
+                        <textarea id="event-notes" name="notes" rows="2" placeholder="Additional notes..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" id="cancel-event">Cancel</button>
+                    <button type="submit" class="btn-primary">Create Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Shortcuts Overlay -->
+    <div id="shortcuts-overlay" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Keyboard Shortcuts</h2>
+                <button class="btn-icon" onclick="closeShortcuts()">×</button>
+            </div>
+            <div class="modal-body">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div><kbd>C</kbd> Create Event</div>
+                    <div><kbd>T</kbd> Today</div>
+                    <div><kbd>←</kbd> Previous Period</div>
+                    <div><kbd>→</kbd> Next Period</div>
+                    <div><kbd>M</kbd> Month View</div>
+                    <div><kbd>W</kbd> Week View</div>
+                    <div><kbd>A</kbd> Agenda View</div>
+                    <div><kbd>/</kbd> Search</div>
+                    <div><kbd>?</kbd> Show Shortcuts</div>
+                    <div><kbd>Esc</kbd> Close Modal</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fab" id="fab" title="Create Event">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12h14" stroke="white" stroke-width="2"/>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/storage.js"></script>
+    <script type="module" src="js/theme.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+    <script type="module" src="js/notifications.js"></script>
+    <script type="module" src="js/parser.js"></script>
+    <script type="module" src="js/calendar.js"></script>
+    <script type="module" src="js/ui.js"></script>
+    <script type="module" src="js/chatbot.js"></script>
+    <script type="module" src="js/main-dashboard.js"></script>
+</body>
+</html>

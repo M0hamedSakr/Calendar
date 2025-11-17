@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - BrandCal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .blog-hero {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            text-align: center;
+        }
+        .blog-hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .blog-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        .blog-container {
+            padding: 5rem 0;
+            background: var(--bg-primary);
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .blog-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+        }
+        .blog-content {
+            padding: 1.5rem;
+        }
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+        }
+        .blog-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .blog-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        .blog-excerpt {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        .author-avatar-small {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-full);
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .blog-sidebar {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+            position: sticky;
+            top: 6rem;
+        }
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+        .sidebar-section h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-root"></div>
+
+    <main>
+        <section class="blog-hero">
+            <div class="container">
+                <h1>BrandCal Blog</h1>
+                <p>Tips, tricks, and insights for better time management</p>
+            </div>
+        </section>
+
+        <section class="blog-container">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem;">
+                    <div>
+                        <div class="blog-grid">
+                            <!-- Blog Post 1 -->
+                            <article class="blog-card">
+                                <div class="blog-image">📅</div>
+                                <div class="blog-content">
+                                    <span class="blog-category">Productivity</span>
+                                    <h2 class="blog-title">
+                                        <a href="blog-post.html">10 Time Management Tips for Busy Professionals</a>
+                                    </h2>
+                                    <p class="blog-excerpt">
+                                        Discover proven strategies to maximize your productivity and take control of your schedule.
+                                    </p>
+                                    <div class="blog-meta">
+                                        <span>📅 Nov 15, 2025</span>
+                                        <span>⏱️ 5 min read</span>
+                                    </div>
+                                    <div class="blog-author">
+                                        <div class="author-avatar-small">JS</div>
+                                        <div>
+                                            <div style="font-weight: 600; font-size: 0.875rem;">Jane Smith</div>
+                                            <div style="font-size: 0.75rem; color: var(--text-tertiary);">CEO</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Blog Post 2 -->
+                            <article class="blog-card">
+                                <div class="blog-image">🚀</div>
+                                <div class="blog-content">
+                                    <span class="blog-category">Features</span>
+                                    <h2 class="blog-title">
+                                        <a href="blog-post.html">Introducing AI-Powered Scheduling</a>
+                                    </h2>
+                                    <p class="blog-excerpt">
+                                        Learn how our new AI assistant can help you schedule meetings faster and smarter.
+                                    </p>
+                                    <div class="blog-meta">
+                                        <span>📅 Nov 10, 2025</span>
+                                        <span>⏱️ 4 min read</span>
+                                    </div>
+                                    <div class="blog-author">
+                                        <div class="author-avatar-small">MJ</div>
+                                        <div>
+                                            <div style="font-weight: 600; font-size: 0.875rem;">Mike Johnson</div>
+                                            <div style="font-size: 0.75rem; color: var(--text-tertiary);">CTO</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Blog Post 3 -->
+                            <article class="blog-card">
+                                <div class="blog-image">💡</div>
+                                <div class="blog-content">
+                                    <span class="blog-category">Tips</span>
+                                    <h2 class="blog-title">
+                                        <a href="blog-post.html">How to Organize Your Weekly Schedule</a>
+                                    </h2>
+                                    <p class="blog-excerpt">
+                                        A comprehensive guide to planning your week for maximum efficiency and work-life balance.
+                                    </p>
+                                    <div class="blog-meta">
+                                        <span>📅 Nov 5, 2025</span>
+                                        <span>⏱️ 6 min read</span>
+                                    </div>
+                                    <div class="blog-author">
+                                        <div class="author-avatar-small">SL</div>
+                                        <div>
+                                            <div style="font-weight: 600; font-size: 0.875rem;">Sarah Lee</div>
+                                            <div style="font-size: 0.75rem; color: var(--text-tertiary);">Designer</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Blog Post 4 -->
+                            <article class="blog-card">
+                                <div class="blog-image">👥</div>
+                                <div class="blog-content">
+                                    <span class="blog-category">Team</span>
+                                    <h2 class="blog-title">
+                                        <a href="blog-post.html">Best Practices for Team Calendar Management</a>
+                                    </h2>
+                                    <p class="blog-excerpt">
+                                        Keep your team synchronized and productive with these calendar management strategies.
+                                    </p>
+                                    <div class="blog-meta">
+                                        <span>📅 Nov 1, 2025</span>
+                                        <span>⏱️ 7 min read</span>
+                                    </div>
+                                    <div class="blog-author">
+                                        <div class="author-avatar-small">JS</div>
+                                        <div>
+                                            <div style="font-weight: 600; font-size: 0.875rem;">Jane Smith</div>
+                                            <div style="font-size: 0.75rem; color: var(--text-tertiary);">CEO</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Blog Post 5 -->
+                            <article class="blog-card">
+                                <div class="blog-image">📊</div>
+                                <div class="blog-content">
+                                    <span class="blog-category">Analytics</span>
+                                    <h2 class="blog-title">
+                                        <a href="blog-post.html">Understanding Your Time Usage with Analytics</a>
+                                    </h2>
+                                    <p class="blog-excerpt">
+                                        Use data-driven insights to optimize how you spend your time and improve productivity.
+                                    </p>
+                                    <div class="blog-meta">
+                                        <span>📅 Oct 28, 2025</span>
+                                        <span>⏱️ 5 min read</span>
+                                    </div>
+                                    <div class="blog-author">
+                                        <div class="author-avatar-small">MJ</div>
+                                        <div>
+                                            <div style="font-weight: 600; font-size: 0.875rem;">Mike Johnson</div>
+                                            <div style="font-size: 0.75rem; color: var(--text-tertiary);">CTO</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Blog Post 6 -->
+                            <article class="blog-card">
+                                <div class="blog-image">🎯</div>
+                                <div class="blog-content">
+                                    <span class="blog-category">Goals</span>
+                                    <h2 class="blog-title">
+                                        <a href="blog-post.html">Setting and Achieving Your Goals with BrandCal</a>
+                                    </h2>
+                                    <p class="blog-excerpt">
+                                        Learn how to use your calendar to set, track, and accomplish your personal and professional goals.
+                                    </p>
+                                    <div class="blog-meta">
+                                        <span>📅 Oct 25, 2025</span>
+                                        <span>⏱️ 8 min read</span>
+                                    </div>
+                                    <div class="blog-author">
+                                        <div class="author-avatar-small">SL</div>
+                                        <div>
+                                            <div style="font-weight: 600; font-size: 0.875rem;">Sarah Lee</div>
+                                            <div style="font-size: 0.75rem; color: var(--text-tertiary);">Designer</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem;">
+                            <button class="btn-secondary">← Previous</button>
+                            <button class="btn-primary">1</button>
+                            <button class="btn-secondary">2</button>
+                            <button class="btn-secondary">3</button>
+                            <button class="btn-secondary">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside>
+                        <div class="blog-sidebar">
+                            <div class="sidebar-section">
+                                <h3>Search</h3>
+                                <input type="text" placeholder="Search articles..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-primary);">
+                            </div>
+
+                            <div class="sidebar-section">
+                                <h3>Categories</h3>
+                                <ul style="list-style: none;">
+                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><a href="#">Productivity (12)</a></li>
+                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><a href="#">Features (8)</a></li>
+                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><a href="#">Tips (15)</a></li>
+                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><a href="#">Team (6)</a></li>
+                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><a href="#">Analytics (4)</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="sidebar-section">
+                                <h3>Popular Tags</h3>
+                                <div class="tag-cloud">
+                                    <span class="tag">Time Management</span>
+                                    <span class="tag">Productivity</span>
+                                    <span class="tag">Scheduling</span>
+                                    <span class="tag">AI</span>
+                                    <span class="tag">Teams</span>
+                                    <span class="tag">Calendar</span>
+                                    <span class="tag">Goals</span>
+                                    <span class="tag">Work-Life</span>
+                                </div>
+                            </div>
+
+                            <div class="sidebar-section">
+                                <h3>Newsletter</h3>
+                                <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">Get the latest articles delivered to your inbox.</p>
+                                <input type="email" placeholder="Your email" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-primary); margin-bottom: 0.5rem;">
+                                <button class="btn-primary btn-block">Subscribe</button>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-root"></div>
+
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/theme.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+    <script type="module" src="js/footer.js"></script>
+</body>
+</html>

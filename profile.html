@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - BrandCal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .profile-page {
+            padding: 2rem 0;
+            min-height: calc(100vh - 8rem);
+            background: var(--bg-secondary);
+        }
+        .profile-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .profile-sidebar {
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            height: fit-content;
+            position: sticky;
+            top: 6rem;
+        }
+        .profile-avatar-section {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .profile-avatar-large {
+            width: 8rem;
+            height: 8rem;
+            border-radius: var(--radius-full);
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+            position: relative;
+            cursor: pointer;
+        }
+        .avatar-edit-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-full);
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--bg-primary);
+            cursor: pointer;
+        }
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .stat-box {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+        }
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+        }
+        .profile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .profile-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .profile-nav-item:hover {
+            background: var(--bg-secondary);
+            color: var(--primary);
+        }
+        .profile-nav-item.active {
+            background: var(--primary);
+            color: white;
+        }
+        .profile-content {
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+        .profile-section {
+            display: none;
+        }
+        .profile-section.active {
+            display: block;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+        }
+        .activity-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-full);
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        .achievement-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--border);
+            transition: var(--transition);
+        }
+        .achievement-card.unlocked {
+            border-color: var(--primary);
+        }
+        .achievement-card.locked {
+            opacity: 0.5;
+        }
+        .achievement-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 1024px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+            }
+            .profile-sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-root"></div>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="profile-container">
+                <!-- Sidebar -->
+                <aside class="profile-sidebar">
+                    <div class="profile-avatar-section">
+                        <div class="profile-avatar-large" onclick="changeAvatar()">
+                            <span id="avatar-initials">JS</span>
+                            <div class="avatar-edit-btn">
+                                <svg width="16" height="16" viewBox="0 0 16 16">
+                                    <path d="M11 2l3 3-9 9H2v-3l9-9z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h2 id="profile-name">Jane Smith</h2>
+                        <p style="color: var(--text-tertiary); margin: 0;" id="profile-email">jane@example.com</p>
+                    </div>
+
+                    <div class="profile-stats">
+                        <div class="stat-box">
+                            <div class="stat-number" id="total-events">127</div>
+                            <div class="stat-label">Events</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="streak-days">45</div>
+                            <div class="stat-label">Day Streak</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="productivity">92%</div>
+                            <div class="stat-label">Productivity</div>
+                        </div>
+                    </div>
+
+                    <nav class="profile-nav">
+                        <a href="#overview" class="profile-nav-item active" data-section="overview">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" fill="currentColor"/>
+                            </svg>
+                            Overview
+                        </a>
+                        <a href="#activity" class="profile-nav-item" data-section="activity">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" fill="currentColor"/>
+                            </svg>
+                            Activity
+                        </a>
+                        <a href="#achievements" class="profile-nav-item" data-section="achievements">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" fill="currentColor"/>
+                            </svg>
+                            Achievements
+                        </a>
+                        <a href="#preferences" class="profile-nav-item" data-section="preferences">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" fill="currentColor"/>
+                            </svg>
+                            Preferences
+                        </a>
+                        <a href="settings.html" class="profile-nav-item">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" fill="currentColor"/>
+                            </svg>
+                            Settings
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="profile-content">
+                    <!-- Overview Section -->
+                    <section class="profile-section active" id="section-overview">
+                        <div class="profile-header">
+                            <h2>Profile Overview</h2>
+                            <button class="btn-primary" onclick="editProfile()">Edit Profile</button>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="Jane Smith" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" value="@janesmith" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="jane@example.com" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" value="+1 (555) 123-4567" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Bio</label>
+                            <textarea rows="3" disabled>Product enthusiast and calendar power user. Love organizing my life!</textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Timezone</label>
+                                <input type="text" value="Eastern Time (ET)" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Language</label>
+                                <input type="text" value="English (US)" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Account Type</label>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <span class="plan-badge-large">Pro Plan</span>
+                                <a href="pricing.html" class="link-primary">Upgrade to Team</a>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+                            <h3 style="margin-bottom: 1rem;">Quick Stats</h3>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-icon">📅</div>
+                                    <div class="stat-value">127</div>
+                                    <div class="stat-label">Total Events</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">✅</div>
+                                    <div class="stat-value">112</div>
+                                    <div class="stat-label">Completed</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">🔥</div>
+                                    <div class="stat-value">45</div>
+                                    <div class="stat-label">Day Streak</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Activity Section -->
+                    <section class="profile-section" id="section-activity">
+                        <div class="profile-header">
+                            <h2>Recent Activity</h2>
+                            <button class="btn-secondary">View All</button>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">📅</div>
+                            <div>
+                                <div style="font-weight: 600;">Created new event</div>
+                                <div style="color: var(--text-secondary); font-size: 0.875rem;">Team Meeting on Nov 20, 2025 at 3:00 PM</div>
+                                <div style="color: var(--text-tertiary); font-size: 0.75rem; margin-top: 0.25rem;">2 hours ago</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">✅</div>
+                            <div>
+                                <div style="font-weight: 600;">Completed event</div>
+                                <div style="color: var(--text-secondary); font-size: 0.875rem;">Project Review</div>
+                                <div style="color: var(--text-tertiary); font-size: 0.75rem; margin-top: 0.25rem;">5 hours ago</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">🎉</div>
+                            <div>
+                                <div style="font-weight: 600;">Unlocked achievement</div>
+                                <div style="color: var(--text-secondary); font-size: 0.875rem;">Completed 100 events milestone!</div>
+                                <div style="color: var(--text-tertiary); font-size: 0.75rem; margin-top: 0.25rem;">Yesterday</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">🔄</div>
+                            <div>
+                                <div style="font-weight: 600;">Synced calendar</div>
+                                <div style="color: var(--text-secondary); font-size: 0.875rem;">Connected Google Calendar</div>
+                                <div style="color: var(--text-tertiary); font-size: 0.75rem; margin-top: 0.25rem;">2 days ago</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">⬆️</div>
+                            <div>
+                                <div style="font-weight: 600;">Upgraded plan</div>
+                                <div style="color: var(--text-secondary); font-size: 0.875rem;">Upgraded to Pro Plan</div>
+                                <div style="color: var(--text-tertiary); font-size: 0.75rem; margin-top: 0.25rem;">1 week ago</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Achievements Section -->
+                    <section class="profile-section" id="section-achievements">
+                        <div class="profile-header">
+                            <h2>Achievements</h2>
+                            <p style="color: var(--text-secondary); margin: 0;">Unlock badges by using BrandCal</p>
+                        </div>
+
+                        <div class="achievement-grid">
+                            <div class="achievement-card unlocked">
+                                <div class="achievement-icon">🎯</div>
+                                <h4>First Event</h4>
+                                <p style="font-size: 0.75rem; color: var(--text-tertiary);">Create your first event</p>
+                            </div>
+
+                            <div class="achievement-card unlocked">
+                                <div class="achievement-icon">🔥</div>
+                                <h4>7 Day Streak</h4>
+                                <p style="font-size: 0.75rem; color: var(--text-tertiary);">Use BrandCal for 7 days</p>
+                            </div>
+
+                            <div class="achievement-card unlocked">
+                                <div class="achievement-icon">💯</div>
+                                <h4>Century</h4>
+                                <p style="font-size: 0.75rem; color: var(--text-tertiary);">Complete 100 events</p>
+                            </div>
+
+                            <div class="achievement-card unlocked">
+                                <div class="achievement-icon">⚡</div>
+                                <h4>Speed Demon</h4>
+                                <p style="font-size: 0.75rem; color: var(--text-tertiary);">Complete 10 events in one day</p>
+                            </div>
+
+                            <div class="achievement-card locked">
+                                <div class="achievement-icon">🌟</div>
+                                <h4>30 Day Streak</h4>
+                                <p style="font-size: 0.75rem; color: var(--text-tertiary);">Use BrandCal for 30 days</p>
+                            </div>
+
+                            <div class="achievement-card locked">
+                                <div class="achievement-icon">👥</div>
+                                <h4>Team Player</h4>
+                                <p style="font-size: 0.75rem; color: var(--text-tertiary);">Invite 5 team members</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Preferences Section -->
+                    <section class="profile-section" id="section-preferences">
+                        <div class="profile-header">
+                            <h2>Preferences</h2>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Default Calendar View</label>
+                            <select>
+                                <option>Month</option>
+                                <option>Week</option>
+                                <option>Agenda</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>First Day of Week</label>
+                            <select>
+                                <option>Sunday</option>
+                                <option>Monday</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Time Format</label>
+                            <select>
+                                <option>12-hour (3:00 PM)</option>
+                                <option>24-hour (15:00)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Date Format</label>
+                            <select>
+                                <option>MM/DD/YYYY</option>
+                                <option>DD/MM/YYYY</option>
+                                <option>YYYY-MM-DD</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Show weekends</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Enable animations</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Show event previews</span>
+                            </label>
+                        </div>
+
+                        <button class="btn-primary">Save Preferences</button>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-root"></div>
+
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/storage.js"></script>
+    <script type="module" src="js/theme.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+    <script type="module" src="js/footer.js"></script>
+    <script type="module" src="js/notifications.js"></script>
+    <script type="module">
+        import { storage } from './js/storage.js';
+        import { showNotification } from './js/notifications.js';
+
+        // Check authentication
+        if (!storage.isAuthenticated()) {
+            window.location.href = 'login.html';
+        }
+
+        // Load user data
+        const user = storage.getUser();
+        if (user) {
+            document.getElementById('profile-name').textContent = user.name;
+            document.getElementById('profile-email').textContent = user.email;
+            document.getElementById('avatar-initials').textContent = 
+                user.name.split(' ').map(n => n[0]).join('').toUpperCase();
+        }
+
+        // Navigation
+        document.querySelectorAll('.profile-nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (this.dataset.section) {
+                    e.preventDefault();
+                    
+                    document.querySelectorAll('.profile-nav-item').forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    document.querySelectorAll('.profile-section').forEach(s => s.classList.remove('active'));
+                    document.getElementById('section-' + this.dataset.section).classList.add('active');
+                }
+            });
+        });
+
+        window.editProfile = function() {
+            showNotification('Profile editing feature coming soon!', 'info');
+        };
+
+        window.changeAvatar = function() {
+            showNotification('Avatar upload feature coming soon!', 'info');
+        };
+    </script>
+</body>
+</html>

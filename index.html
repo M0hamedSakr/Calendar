@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BrandCal - Smart Calendar & Reminders System for modern teams">
+    <meta name="keywords" content="calendar, reminders, scheduling, productivity">
+    <meta name="author" content="BrandCal Team">
+    <title>BrandCal - Smart Calendar & Reminders</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="BrandCal - Smart Calendar & Reminders">
+    <meta property="og:description" content="Manage your schedule smarter with AI-powered calendar">
+    <meta property="og:image" content="assets/images/og-image.png">
+    <meta property="og:url" content="https://brandcal.com">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BrandCal - Smart Calendar & Reminders">
+    <meta name="twitter:description" content="Manage your schedule smarter">
+</head>
+<body>
+    <!-- Navigation will be injected here -->
+    <div id="navbar-root"></div>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <p>🎉 <strong>New:</strong> AI-powered scheduling is now available! <a href="features.html">Learn more →</a></p>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-content" data-aos="fade-right">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span>Trusted by 50,000+ users worldwide</span>
+                    </div>
+                    <h1>Your Brand Calendar, <span class="gradient-text">Simplified</span></h1>
+                    <p class="hero-subtitle">Manage events, set reminders, and stay organized with our intelligent calendar platform. Perfect for brands, teams, and individuals who value their time.</p>
+                    <div class="hero-cta">
+                        <a href="signup.html" class="btn-primary btn-large">
+                            Get Started Free
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </a>
+                        <a href="#demo" class="btn-secondary btn-large">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="8" stroke="currentColor" fill="none" stroke-width="2"/>
+                                <path d="M8 7l5 3-5 3V7z" fill="currentColor"/>
+                            </svg>
+                            Watch Demo
+                        </a>
+                    </div>
+                    <div class="hero-features">
+                        <div class="feature-badge">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M16.666 9.11667V10C16.6651 11.797 16.0435 13.5456 14.8968 14.9849C13.75 16.4242 12.1402 17.477 10.3201 17.9866C8.50002 18.4961 6.56529 18.4349 4.78367 17.8122C3.00205 17.1894 1.4686 16.0384 0.400394 14.5309C-0.667812 13.0234 -1.24496 11.2401 -1.24964 9.40667C-1.25431 7.57319 -0.746033 5.78668 0.33037 4.27377C1.40677 2.76086 2.94817 1.60082 4.73286 0.966908C6.51754 0.332995 8.45203 0.259329 10.276 0.755003" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16.666 2.5L8.33268 10.8417L5.83268 8.34167" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>No credit card required</span>
+                        </div>
+                        <div class="feature-badge">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M13.333 1.66667V5.00001M6.66634 1.66667V5.00001M2.49967 8.33334H17.4997M4.16634 3.33334H15.833C16.7535 3.33334 17.4997 4.07954 17.4997 5.00001V16.6667C17.4997 17.5871 16.7535 18.3333 15.833 18.3333H4.16634C3.24587 18.3333 2.49967 17.5871 2.49967 16.6667V5.00001C2.49967 4.07954 3.24587 3.33334 4.16634 3.33334Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>14-day free trial</span>
+                        </div>
+                        <div class="feature-badge">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M1 10s3-7 9-7 9 7 9 7-3 7-9 7-9-7-9-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                            <span>100% Privacy Protected</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Trusted By -->
+                    <div class="trusted-by">
+                        <p class="text-muted">Trusted by leading companies</p>
+                        <div class="company-logos">
+                            <div class="company-logo">GOOGLE</div>
+                            <div class="company-logo">MICROSOFT</div>
+                            <div class="company-logo">AMAZON</div>
+                            <div class="company-logo">APPLE</div>
+                            <div class="company-logo">META</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual" data-aos="fade-left">
+                    <div class="calendar-mockup float">
+                        <div class="mockup-header">
+                            <div class="mockup-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="mockup-title">November 2025</div>
+                            <div class="mockup-actions">
+                                <button class="mockup-btn">Today</button>
+                            </div>
+                        </div>
+                        <div class="mockup-grid">
+                            <div class="mockup-day">M</div>
+                            <div class="mockup-day">T</div>
+                            <div class="mockup-day">W</div>
+                            <div class="mockup-day">T</div>
+                            <div class="mockup-day">F</div>
+                            <div class="mockup-day weekend">S</div>
+                            <div class="mockup-day weekend">S</div>
+                            <div class="mockup-date">4</div>
+                            <div class="mockup-date">5<span class="event-dot blue"></span></div>
+                            <div class="mockup-date">6</div>
+                            <div class="mockup-date">7<span class="event-dot green"></span></div>
+                            <div class="mockup-date">8<span class="event-dot purple"></span></div>
+                            <div class="mockup-date weekend">9</div>
+                            <div class="mockup-date weekend">10</div>
+                            <div class="mockup-date">11</div>
+                            <div class="mockup-date">12<span class="event-dot orange"></span></div>
+                            <div class="mockup-date">13</div>
+                            <div class="mockup-date">14</div>
+                            <div class="mockup-date">15</div>
+                            <div class="mockup-date weekend">16</div>
+                            <div class="mockup-date weekend today">17<span class="event-dot purple"></span></div>
+                            <div class="mockup-date">18</div>
+                            <div class="mockup-date">19<span class="event-dot blue"></span></div>
+                            <div class="mockup-date">20</div>
+                        </div>
+                        <div class="floating-reminder">
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M12 5.33333L8 9.33333L6 7.33333" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Meeting in 1 hour</span>
+                        </div>
+                        <div class="floating-event">
+                            <div class="event-time">3:00 PM</div>
+                            <div class="event-title">Team Standup</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-number" data-count="50000">0</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-number" data-count="1000000">0</div>
+                        <div class="stat-label">Events Created</div>
+                    </div>
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-number">4.9</div>
+                        <div class="stat-label">User Rating</div>
+                    </div>
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="stat-icon">🌍</div>
+                        <div class="stat-number" data-count="150">0</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Overview -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-badge">Features</span>
+                    <h2 class="section-title">Everything You Need</h2>
+                    <p class="section-subtitle">Powerful features to keep your schedule organized and your productivity high</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon blue">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M21 10H3M16 2V6M8 2V6M7.8 22H16.2C17.8802 22 18.7202 22 19.362 21.673C19.9265 21.3854 20.3854 20.9265 20.673 20.362C21 19.7202 21 18.8802 21 17.2V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Smart Calendar</h3>
+                        <p>Intuitive monthly, weekly, and agenda views with drag-and-drop functionality and smart scheduling.</p>
+                        <a href="features.html" class="feature-link">Learn more →</a>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon purple">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M18 8A6 6 0 106 8c0 7-3 9-3 9h18s-3-2-3-9zM13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3>Smart Reminders</h3>
+                        <p>Never miss an event with customizable notifications, multiple reminder options, and cross-device sync.</p>
+                        <a href="features.html" class="feature-link">Learn more →</a>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon green">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 12H8.01M12 12H12.01M16 12H16.01" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>AI Assistant</h3>
+                        <p>Natural language event creation, smart scheduling suggestions, and intelligent conflict detection.</p>
+                        <a href="features.html" class="feature-link">Learn more →</a>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-icon orange">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M9 11L12 14L22 4M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Task Management</h3>
+                        <p>Integrate tasks with your calendar, set priorities, track progress, and boost productivity.</p>
+                        <a href="features.html" class="feature-link">Learn more →</a>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="feature-icon red">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3>Team Collaboration</h3>
+                        <p>Share calendars, schedule meetings, manage team availability, and collaborate seamlessly.</p>
+                        <a href="features.html" class="feature-link">Learn more →</a>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="feature-icon teal">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Integrations</h3>
+                        <p>Connect with Google Calendar, Outlook, Slack, Zoom, and 100+ apps you already use.</p>
+                        <a href="features.html" class="feature-link">Learn more →</a>
+                    </div>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" style="margin-top: 3rem;">
+                    <a href="features.html" class="btn-primary btn-large">
+                        View All Features
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M7 10h10M13 6l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-badge">How It Works</span>
+                    <h2 class="section-title">Get Started in Minutes</h2>
+                    <p class="section-subtitle">Simple setup, powerful results</p>
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card" data-aos="fade-right" data-aos-delay="100">
+                        <div class="step-number">1</div>
+                        <h3>Sign Up Free</h3>
+                        <p>Create your account in seconds. No credit card required.</p>
+                    </div>
+                    
+                    <div class="step-arrow" data-aos="fade-up">→</div>
+                    
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-number">2</div>
+                        <h3>Add Your Events</h3>
+                        <p>Use voice, natural language, or traditional forms to create events.</p>
+                    </div>
+                    
+                    <div class="step-arrow" data-aos="fade-up">→</div>
+                    
+                    <div class="step-card" data-aos="fade-left" data-aos-delay="300">
+                        <div class="step-number">3</div>
+                        <h3>Stay Organized</h3>
+                        <p>Get reminders, manage tasks, and never miss an important date.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-badge">Testimonials</span>
+                    <h2 class="section-title">Loved by Thousands</h2>
+                    <p class="section-subtitle">See what our users have to say</p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"BrandCal has completely transformed how I manage my schedule. The AI assistant is incredible!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JD</div>
+                            <div class="author-info">
+                                <div class="author-name">John Doe</div>
+                                <div class="author-title">Product Manager, Google</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Best calendar app I've ever used. The natural language input is a game changer!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JS</div>
+                            <div class="author-info">
+                                <div class="author-name">Jane Smith</div>
+                                <div class="author-title">CEO, TechStart</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"My team's productivity has increased 40% since switching to BrandCal. Highly recommend!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MJ</div>
+                            <div class="author-info">
+                                <div class="author-name">Mike Johnson</div>
+                                <div class="author-title">Director, Microsoft</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Preview -->
+        <section class="pricing-preview">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-badge">Pricing</span>
+                    <h2 class="section-title">Simple, Transparent Pricing</h2>
+                    <p class="section-subtitle">Start free, upgrade when you need more</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="plan-header">
+                            <h3>Free</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">0</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <p class="plan-description">Perfect for individuals</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Monthly calendar view</li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Basic reminders</li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Up to 50 events</li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Mobile & web access</li>
+                        </ul>
+                        <a href="signup.html" class="btn-secondary btn-block">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="200">
+                        <div class="plan-badge">Most Popular</div>
+                        <div class="plan-header">
+                            <h3>Pro</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">9</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <p class="plan-description">For professionals</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Everything in Free</li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Unlimited events</li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>AI-powered features</li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Voice input</li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Priority support</li>
+                        </ul>
+                        <a href="signup.html" class="btn-primary btn-block">Start Free Trial</a>
+                    </div>
+                    
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="plan-header">
+                            <h3>Team</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">29</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <p class="plan-description">For growing teams</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Everything in Pro</li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Up to 10 team members</li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Shared calendars</li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Team analytics</li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M16.666 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>Admin controls</li>
+                        </ul>
+                        <a href="contact.html" class="btn-secondary btn-block">Contact Sales</a>
+                    </div>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" style="margin-top: 2rem;">
+                    <a href="pricing.html" class="link-primary">View detailed pricing →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container" data-aos="zoom-in">
+                <div class="cta-content">
+                    <h2>Ready to Get Organized?</h2>
+                    <p>Join thousands of users managing their schedules smarter</p>
+                    <div class="cta-buttons">
+                        <a href="signup.html" class="btn-primary btn-large">Start Your Free Trial</a>
+                        <a href="contact.html" class="btn-secondary btn-large">Talk to Sales</a>
+                    </div>
+                    <p class="cta-note">No credit card required • Cancel anytime • 14-day free trial</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be injected here -->
+    <div id="footer-root"></div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>🍪 We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+            <div class="cookie-actions">
+                <a href="cookies.html" class="link-primary">Learn more</a>
+                <button onclick="acceptCookies()" class="btn-primary">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/theme.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+    <script type="module" src="js/footer.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script>
+        // Simple AOS-like animation on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const initTheme = () => {
+                const savedTheme = localStorage.getItem('brandcal_theme') || 'light';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            };
+            initTheme();
+            
+            // Animate counters
+            const animateCounter = (element) => {
+                const target = parseInt(element.dataset.count);
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        element.textContent = Math.floor(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = target.toLocaleString();
+                    }
+                };
+                
+                updateCounter();
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.dataset.count) {
+                            animateCounter(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            document.querySelectorAll('[data-aos]').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+            
+            document.querySelectorAll('[data-count]').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Cookie banner
+            if (!localStorage.getItem('brandcal_cookies_accepted')) {
+                setTimeout(() => {
+                    document.getElementById('cookie-banner').style.display = 'block';
+                }, 1000);
+            }
+        });
+        
+        function acceptCookies() {
+            localStorage.setItem('brandcal_cookies_accepted', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

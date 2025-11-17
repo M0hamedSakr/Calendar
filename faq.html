@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - BrandCal</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-root"></div>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Frequently Asked Questions</h1>
+                <p class="lead">Find answers to common questions about BrandCal</p>
+                
+                <!-- Search FAQs -->
+                <div class="faq-search">
+                    <input type="text" id="faq-search-input" placeholder="Search FAQs..." aria-label="Search FAQs">
+                    <svg width="20" height="20" viewBox="0 0 20 20">
+                        <circle cx="8" cy="8" r="6" stroke="currentColor" fill="none" stroke-width="2"/>
+                        <path d="M13 13l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-content">
+            <div class="container">
+                <!-- FAQ Categories -->
+                <div class="faq-categories">
+                    <button class="faq-category-btn active" data-category="all">All Questions</button>
+                    <button class="faq-category-btn" data-category="general">General</button>
+                    <button class="faq-category-btn" data-category="account">Account</button>
+                    <button class="faq-category-btn" data-category="billing">Billing</button>
+                    <button class="faq-category-btn" data-category="features">Features</button>
+                    <button class="faq-category-btn" data-category="technical">Technical</button>
+                    <button class="faq-category-btn" data-category="privacy">Privacy</button>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="faq-accordion">
+                    <!-- General -->
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question">
+                            <span>What is BrandCal?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>BrandCal is a smart calendar and scheduling application designed to help individuals, teams, and businesses manage their time effectively. With AI-powered features, natural language input, and seamless integrations, BrandCal makes organizing your schedule simple and intuitive.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question">
+                            <span>Is BrandCal free to use?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! We offer a free plan that includes basic calendar features and up to 50 events per month. For advanced features like AI assistance, unlimited events, and team collaboration, you can upgrade to our Pro or Team plans.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question">
+                            <span>What devices does BrandCal work on?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>BrandCal works on all modern web browsers (Chrome, Firefox, Safari, Edge) on desktop and mobile devices. We also offer native mobile apps for iOS and Android. Your data syncs automatically across all devices.</p>
+                        </div>
+                    </div>
+
+                    <!-- Account -->
+                    <div class="faq-item" data-category="account">
+                        <button class="faq-question">
+                            <span>How do I create an account?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Creating an account is easy! Click the "Sign Up" button, enter your email and password, and you're ready to go. You can also sign up using your Google, Facebook, or Apple account for even faster access.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="account">
+                        <button class="faq-question">
+                            <span>Can I change my email address?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, you can change your email address in Settings > Account. You'll need to verify your new email address before the change takes effect.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="account">
+                        <button class="faq-question">
+                            <span>How do I delete my account?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>To delete your account, go to Settings > Account > Delete Account. Please note that this action is permanent and will delete all your data. We recommend exporting your data before deletion.</p>
+                        </div>
+                    </div>
+
+                    <!-- Billing -->
+                    <div class="faq-item" data-category="billing">
+                        <button class="faq-question">
+                            <span>What payment methods do you accept?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, and Apple Pay. For Enterprise plans, we also accept wire transfers and purchase orders.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="billing">
+                        <button class="faq-question">
+                            <span>Can I cancel my subscription anytime?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! You can cancel your subscription at any time from Settings > Billing. Your access will continue until the end of your current billing period, and you won't be charged again.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="billing">
+                        <button class="faq-question">
+                            <span>Do you offer refunds?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, we offer a 30-day money-back guarantee. If you're not satisfied with BrandCal, contact our support team within 30 days of your purchase for a full refund.</p>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="faq-item" data-category="features">
+                        <button class="faq-question">
+                            <span>How does the AI assistant work?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our AI assistant uses natural language processing to understand your scheduling requests. Simply type or speak what you want (like "Schedule dentist appointment tomorrow at 3pm") and the AI will create the event for you automatically.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="features">
+                        <button class="faq-question">
+                            <span>Can I integrate with other calendars?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! BrandCal integrates with Google Calendar, Microsoft Outlook, Apple Calendar, and many other popular calendar services. Events sync automatically in both directions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="features">
+                        <button class="faq-question">
+                            <span>How do reminders work?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can set multiple reminders for each event. Reminders can be delivered via push notification, email, or SMS (Pro plan). You can customize the timing (5 minutes, 1 hour, 1 day before, etc.) and choose different notification methods for each reminder.</p>
+                        </div>
+                    </div>
+
+                    <!-- Technical -->
+                    <div class="faq-item" data-category="technical">
+                        <button class="faq-question">
+                            <span>Is my data backed up?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! Your data is automatically backed up daily. We maintain multiple redundant backups across different geographic locations to ensure your data is always safe and recoverable.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="technical">
+                        <button class="faq-question">
+                            <span>Can I export my data?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, you can export all your data at any time in standard formats (CSV, JSON, iCal). Go to Settings > Data Export to download your complete calendar data, events, and settings.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="technical">
+                        <button class="faq-question">
+                            <span>What if I have technical issues?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our support team is here to help! Contact us via email (support@brandcal.com), live chat, or through the help center. Pro and Team plan users receive priority support with faster response times.</p>
+                        </div>
+                    </div>
+
+                    <!-- Privacy -->
+                    <div class="faq-item" data-category="privacy">
+                        <button class="faq-question">
+                            <span>Is my data secure?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely! We use bank-level encryption (AES-256) to protect your data both in transit and at rest. We're SOC 2 compliant and undergo regular security audits. Your privacy and security are our top priorities.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="privacy">
+                        <button class="faq-question">
+                            <span>Do you sell my data?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No! We never sell your personal information to third parties. We respect your privacy and only use your data to provide and improve our service. For complete details, see our <a href="privacy.html">Privacy Policy</a>.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="privacy">
+                        <button class="faq-question">
+                            <span>Are you GDPR compliant?</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" class="faq-icon">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, BrandCal is fully GDPR compliant. We provide all required rights including data access, correction, deletion, and portability. EU users' data is stored in EU-based servers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Still have questions -->
+                <div class="faq-cta">
+                    <h2>Still have questions?</h2>
+                    <p>Can't find what you're looking for? Our support team is here to help!</p>
+                    <div class="faq-cta-buttons">
+                        <a href="contact.html" class="btn-primary">Contact Support</a>
+                        <a href="help.html" class="btn-secondary">Visit Help Center</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-root"></div>
+
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/theme.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+    <script type="module" src="js/footer.js"></script>
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isOpen = faqItem.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked if it wasn't open
+                if (!isOpen) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Category filtering
+        document.querySelectorAll('.faq-category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.faq-category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const category = btn.dataset.category;
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        document.getElementById('faq-search-input')?.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(query) || answer.includes(query)) {
+                    item.style.display = 'block';
+                    if (query.length > 2) {
+                        item.classList.add('active');
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

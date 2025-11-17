@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - BrandCal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .help-hero {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            text-align: center;
+        }
+        .help-hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .help-search {
+            max-width: 700px;
+            margin: 2rem auto 0;
+            position: relative;
+        }
+        .help-search input {
+            width: 100%;
+            padding: 1.25rem 4rem 1.25rem 1.5rem;
+            border: none;
+            border-radius: var(--radius-xl);
+            font-size: 1.125rem;
+            box-shadow: var(--shadow-xl);
+        }
+        .help-search-icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-tertiary);
+        }
+        .help-categories {
+            padding: 5rem 0;
+            background: var(--bg-primary);
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .category-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            text-align: center;
+        }
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .category-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        .category-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .article-count {
+            font-size: 0.875rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .popular-articles {
+            padding: 5rem 0;
+            background: var(--bg-secondary);
+        }
+        .article-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .article-item {
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+        .article-item:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow);
+        }
+        .article-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: var(--radius);
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .article-content {
+            flex: 1;
+        }
+        .article-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+        .article-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        .video-tutorials {
+            padding: 5rem 0;
+            background: var(--bg-primary);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .video-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .video-thumbnail {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            cursor: pointer;
+        }
+        .play-button {
+            width: 4rem;
+            height: 4rem;
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+        }
+        .video-info {
+            padding: 1.5rem;
+        }
+        .contact-support {
+            padding: 5rem 0;
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+        .support-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-root"></div>
+
+    <main>
+        <section class="help-hero">
+            <div class="container">
+                <h1>How can we help you?</h1>
+                <p>Search our knowledge base or browse categories below</p>
+                <div class="help-search">
+                    <input type="text" placeholder="Search for help articles..." id="help-search-input">
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="help-search-icon">
+                        <circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-categories">
+            <div class="container">
+                <h2 class="section-title text-center" style="margin-bottom: 3rem;">Browse by Category</h2>
+                <div class="category-grid">
+                    <a href="#getting-started" class="category-card">
+                        <div class="category-icon">🚀</div>
+                        <h3>Getting Started</h3>
+                        <p>Learn the basics and set up your account</p>
+                        <span class="article-count">12 articles</span>
+                    </a>
+
+                    <a href="#calendar" class="category-card">
+                        <div class="category-icon">📅</div>
+                        <h3>Calendar & Events</h3>
+                        <p>Manage your calendar and create events</p>
+                        <span class="article-count">18 articles</span>
+                    </a>
+
+                    <a href="#reminders" class="category-card">
+                        <div class="category-icon">🔔</div>
+                        <h3>Reminders</h3>
+                        <p>Set up and manage reminders</p>
+                        <span class="article-count">8 articles</span>
+                    </a>
+
+                    <a href="#team" class="category-card">
+                        <div class="category-icon">👥</div>
+                        <h3>Team Features</h3>
+                        <p>Collaborate with your team</p>
+                        <span class="article-count">15 articles</span>
+                    </a>
+
+                    <a href="#integrations" class="category-card">
+                        <div class="category-icon">🔗</div>
+                        <h3>Integrations</h3>
+                        <p>Connect with other apps</p>
+                        <span class="article-count">10 articles</span>
+                    </a>
+
+                    <a href="#billing" class="category-card">
+                        <div class="category-icon">💳</div>
+                        <h3>Billing & Plans</h3>
+                        <p>Manage your subscription</p>
+                        <span class="article-count">6 articles</span>
+                    </a>
+
+                    <a href="#mobile" class="category-card">
+                        <div class="category-icon">📱</div>
+                        <h3>Mobile Apps</h3>
+                        <p>Use BrandCal on the go</p>
+                        <span class="article-count">9 articles</span>
+                    </a>
+
+                    <a href="#troubleshooting" class="category-card">
+                        <div class="category-icon">🔧</div>
+                        <h3>Troubleshooting</h3>
+                        <p>Fix common issues</p>
+                        <span class="article-count">14 articles</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="popular-articles">
+            <div class="container">
+                <h2 class="section-title text-center" style="margin-bottom: 3rem;">Popular Articles</h2>
+                <div class="article-list">
+                    <a href="#" class="article-item">
+                        <div class="article-icon">📖</div>
+                        <div class="article-content">
+                            <div class="article-title">How to create your first event</div>
+                            <div class="article-desc">Step-by-step guide to creating and managing events</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="article-item">
+                        <div class="article-icon">🤖</div>
+                        <div class="article-content">
+                            <div class="article-title">Using the AI assistant for natural language scheduling</div>
+                            <div class="article-desc">Learn how to create events using voice and text commands</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="article-item">
+                        <div class="article-icon">🔄</div>
+                        <div class="article-content">
+                            <div class="article-title">Syncing with Google Calendar</div>
+                            <div class="article-desc">Connect BrandCal with your Google Calendar account</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="article-item">
+                        <div class="article-icon">👥</div>
+                        <div class="article-content">
+                            <div class="article-title">Inviting team members and sharing calendars</div>
+                            <div class="article-desc">Collaborate with your team using shared calendars</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="article-item">
+                        <div class="article-icon">⚙️</div>
+                        <div class="article-content">
+                            <div class="article-title">Customizing your calendar view</div>
+                            <div class="article-desc">Personalize colors, layouts, and display preferences</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="article-item">
+                        <div class="article-icon">📊</div>
+                        <div class="article-content">
+                            <div class="article-title">Understanding your productivity analytics</div>
+                            <div class="article-desc">Track and analyze how you spend your time</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-tutorials">
+            <div class="container">
+                <h2 class="section-title text-center" style="margin-bottom: 3rem;">Video Tutorials</h2>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            🎥
+                            <div class="play-button">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary)">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Getting Started with BrandCal</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">5:23</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            🎥
+                            <div class="play-button">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary)">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Advanced Event Management</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">8:15</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            🎥
+                            <div class="play-button">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary)">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Team Collaboration Features</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">6:42</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-support">
+            <div class="container">
+                <h2 class="section-title">Still need help?</h2>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 1rem auto;">Our support team is here to assist you with any questions or issues you may have.</p>
+                
+                <div class="support-options">
+                    <div class="support-card">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">💬</div>
+                        <h3>Live Chat</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Get instant help from our support team</p>
+                        <button class="btn-primary">Start Chat</button>
+                    </div>
+
+                    <div class="support-card">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
+                        <h3>Email Support</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">We'll respond within 24 hours</p>
+                        <a href="contact.html" class="btn-secondary">Send Email</a>
+                    </div>
+
+                    <div class="support-card">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">👥</div>
+                        <h3>Community</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Connect with other BrandCal users</p>
+                        <button class="btn-secondary">Join Community</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-root"></div>
+
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/theme.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+    <script type="module" src="js/footer.js"></script>
+    <script>
+        document.getElementById('help-search-input').addEventListener('input', function() {
+            console.log('Searching for:', this.value);
+            // Implement search functionality
+        });
+    </script>
+</body>
+</html>

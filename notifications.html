@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - BrandCal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .notifications-page {
+            padding: 2rem 0;
+            min-height: calc(100vh - 8rem);
+            background: var(--bg-secondary);
+        }
+        .notifications-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .notifications-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+        }
+        .notification-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .notification-tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .notification-tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .notification-tab:hover {
+            border-color: var(--primary);
+        }
+        .notification-list {
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .notification-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+        .notification-item:hover {
+            background: var(--bg-secondary);
+        }
+        .notification-item.unread {
+            background: rgba(5, 119, 255, 0.05);
+        }
+        .notification-icon-wrapper {
+            width: 3rem;
+            height: 3rem;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+        }
+        .notification-icon-wrapper.blue { background: rgba(5, 119, 255, 0.1); }
+        .notification-icon-wrapper.green { background: rgba(16, 185, 129, 0.1); }
+        .notification-icon-wrapper.orange { background: rgba(245, 158, 11, 0.1); }
+        .notification-icon-wrapper.red { background: rgba(239, 68, 68, 0.1); }
+        .notification-content {
+            flex: 1;
+        }
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+        .notification-message {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        .notification-time {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+        .notification-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .empty-notifications {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-root"></div>
+
+    <main class="notifications-page">
+        <div class="container">
+            <div class="notifications-container">
+                <div class="notifications-header">
+                    <div>
+                        <h1>Notifications</h1>
+                        <p style="color: var(--text-secondary); margin: 0;">Stay updated with your events and reminders</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn-secondary" onclick="markAllRead()">Mark all as read</button>
+                        <button class="btn-icon" onclick="openSettings()">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M17 10c0-.6-.1-1.2-.3-1.8l2-1.2-2-3.5-2.3.8c-.9-.7-2-1.2-3.2-1.4L11 1H9l-.2 1.9c-1.2.2-2.3.7-3.2 1.4L3.3 3.5l-2 3.5 2 1.2c-.2.6-.3 1.2-.3 1.8s.1 1.2.3 1.8l-2 1.2 2 3.5 2.3-.8c.9.7 2 1.2 3.2 1.4L9 19h2l.2-1.9c1.2-.2 2.3-.7 3.2-1.4l2.3.8 2-3.5-2-1.2c.2-.6.3-1.2.3-1.8z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="notification-tabs">
+                    <button class="notification-tab active" data-filter="all">All</button>
+                    <button class="notification-tab" data-filter="unread">Unread (3)</button>
+                    <button class="notification-tab" data-filter="events">Events</button>
+                    <button class="notification-tab" data-filter="reminders">Reminders</button>
+                    <button class="notification-tab" data-filter="updates">Updates</button>
+                </div>
+
+                <div class="notification-list">
+                    <!-- Unread Notification -->
+                    <div class="notification-item unread">
+                        <div class="notification-icon-wrapper blue">🔔</div>
+                        <div class="notification-content">
+                            <div class="notification-title">Event Reminder: Team Meeting</div>
+                            <div class="notification-message">Your meeting "Team Meeting" starts in 15 minutes at 3:00 PM</div>
+                            <div class="notification-time">5 minutes ago</div>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="btn-icon" onclick="viewEvent('evt1')">
+                                <svg width="20" height="20" viewBox="0 0 20 20">
+                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="M1 10s3-7 9-7 9 7 9 7-3 7-9 7-9-7-9-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </button>
+                            <button class="btn-icon" onclick="dismissNotification(this)">
+                                <svg width="20" height="20" viewBox="0 0 20 20">
+                                    <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Unread Notification -->
+                    <div class="notification-item unread">
+                        <div class="notification-icon-wrapper green">✓</div>
+                        <div class="notification-content">
+                            <div class="notification-title">Event Created Successfully</div>
+                            <div class="notification-message">Your event "Project Review" has been created for tomorrow at 10:00 AM</div>
+                            <div class="notification-time">2 hours ago</div>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="btn-icon" onclick="dismissNotification(this)">
+                                <svg width="20" height="20" viewBox="0 0 20 20">
+                                    <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Unread Notification -->
+                    <div class="notification-item unread">
+                        <div class="notification-icon-wrapper orange">⚠</div>
+                        <div class="notification-content">
+                            <div class="notification-title">Schedule Conflict Detected</div>
+                            <div class="notification-message">You have overlapping events on Friday. Review your schedule to resolve conflicts.</div>
+                            <div class="notification-time">3 hours ago</div>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="btn-secondary" onclick="resolveConflict()">Resolve</button>
+                            <button class="btn-icon" onclick="dismissNotification(this)">×</button>
+                        </div>
+                    </div>
+
+                    <!-- Read Notification -->
+                    <div class="notification-item">
+                        <div class="notification-icon-wrapper blue">📅</div>
+                        <div class="notification-content">
+                            <div class="notification-title">Weekly Schedule Summary</div>
+                            <div class="notification-message">You have 12 events scheduled for this week. View your weekly summary for more details.</div>
+                            <div class="notification-time">Yesterday</div>
+                        </div>
+                    </div>
+
+                    <!-- Read Notification -->
+                    <div class="notification-item">
+                        <div class="notification-icon-wrapper green">🎉</div>
+                        <div class="notification-content">
+                            <div class="notification-title">Welcome to BrandCal Pro!</div>
+                            <div class="notification-message">Your Pro plan is now active. Enjoy unlimited events and AI-powered features.</div>
+                            <div class="notification-time">2 days ago</div>
+                        </div>
+                    </div>
+
+                    <!-- Read Notification -->
+                    <div class="notification-item">
+                        <div class="notification-icon-wrapper blue">🔄</div>
+                        <div class="notification-content">
+                            <div class="notification-title">Calendar Synced Successfully</div>
+                            <div class="notification-message">Your Google Calendar has been synced. All events are now up to date.</div>
+                            <div class="notification-time">3 days ago</div>
+                        </div>
+                    </div>
+
+                    <!-- Read Notification -->
+                    <div class="notification-item">
+                        <div class="notification-icon-wrapper red">❌</div>
+                        <div class="notification-content">
+                            <div class="notification-title">Event Cancelled</div>
+                            <div class="notification-message">"Marketing Presentation" scheduled for Nov 12 has been cancelled by the organizer.</div>
+                            <div class="notification-time">5 days ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-root"></div>
+
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/storage.js"></script>
+    <script type="module" src="js/theme.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+    <script type="module" src="js/footer.js"></script>
+    <script type="module" src="js/notifications.js"></script>
+    <script type="module">
+        import { storage } from './js/storage.js';
+        import { showNotification } from './js/notifications.js';
+
+        // Check authentication
+        if (!storage.isAuthenticated()) {
+            window.location.href = 'login.html';
+        }
+
+        // Tab filtering
+        document.querySelectorAll('.notification-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.notification-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                // Implement filtering logic here
+                console.log('Filter:', filter);
+            });
+        });
+
+        window.markAllRead = function() {
+            document.querySelectorAll('.notification-item.unread').forEach(item => {
+                item.classList.remove('unread');
+            });
+            showNotification('All notifications marked as read', 'success');
+        };
+
+        window.dismissNotification = function(btn) {
+            const item = btn.closest('.notification-item');
+            item.style.opacity = '0';
+            setTimeout(() => item.remove(), 300);
+            showNotification('Notification dismissed', 'info', 2000);
+        };
+
+        window.viewEvent = function(id) {
+            window.location.href = `dashboard.html?event=${id}`;
+        };
+
+        window.resolveConflict = function() {
+            window.location.href = 'dashboard.html?view=week';
+        };
+
+        window.openSettings = function() {
+            window.location.href = 'settings.html#notifications';
+        };
+    </script>
+</body>
+</html>
