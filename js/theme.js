@@ -2,7 +2,7 @@
  * Theme Management System
  */
 
-const THEME_KEY = 'brandcal_theme';
+const THEME_KEY = 'ChronoWavel_theme';
 const THEMES = {
     LIGHT: 'light',
     DARK: 'dark',

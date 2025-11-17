@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BrandCal - Smart Calendar & Reminders System for modern teams">
+    <meta name="description" content="ChronoWavel - Smart Calendar & Reminders System for modern teams">
     <meta name="keywords" content="calendar, reminders, scheduling, productivity">
-    <meta name="author" content="BrandCal Team">
-    <title>BrandCal - Smart Calendar & Reminders</title>
+    <meta name="author" content="ChronoWavel Team">
+    <title>ChronoWavel - Smart Calendar & Reminders</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="BrandCal - Smart Calendar & Reminders">
+    <meta property="og:title" content="ChronoWavel - Smart Calendar & Reminders">
     <meta property="og:description" content="Manage your schedule smarter with AI-powered calendar">
     <meta property="og:image" content="assets/images/og-image.png">
-    <meta property="og:url" content="https://brandcal.com">
+    <meta property="og:url" content="https://ChronoWavel.com">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BrandCal - Smart Calendar & Reminders">
+    <meta name="twitter:title" content="ChronoWavel - Smart Calendar & Reminders">
     <meta name="twitter:description" content="Manage your schedule smarter">
 </head>
 <body>
@@ -311,7 +311,7 @@
                 <div class="testimonials-grid">
                     <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                        <p class="testimonial-text">"BrandCal has completely transformed how I manage my schedule. The AI assistant is incredible!"</p>
+                        <p class="testimonial-text">"ChronoWavel has completely transformed how I manage my schedule. The AI assistant is incredible!"</p>
                         <div class="testimonial-author">
                             <div class="author-avatar">JD</div>
                             <div class="author-info">
@@ -335,7 +335,7 @@
                     
                     <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                        <p class="testimonial-text">"My team's productivity has increased 40% since switching to BrandCal. Highly recommend!"</p>
+                        <p class="testimonial-text">"My team's productivity has increased 40% since switching to ChronoWavel. Highly recommend!"</p>
                         <div class="testimonial-author">
                             <div class="author-avatar">MJ</div>
                             <div class="author-info">
@@ -457,7 +457,7 @@
         // Simple AOS-like animation on scroll
         document.addEventListener('DOMContentLoaded', () => {
             const initTheme = () => {
-                const savedTheme = localStorage.getItem('brandcal_theme') || 'light';
+                const savedTheme = localStorage.getItem('ChronoWavel_theme') || 'light';
                 document.documentElement.setAttribute('data-theme', savedTheme);
             };
             initTheme();
@@ -507,7 +507,7 @@
             });
             
             // Cookie banner
-            if (!localStorage.getItem('brandcal_cookies_accepted')) {
+            if (!localStorage.getItem('ChronoWavel_cookies_accepted')) {
                 setTimeout(() => {
                     document.getElementById('cookie-banner').style.display = 'block';
                 }, 1000);
@@ -515,7 +515,7 @@
         });
         
         function acceptCookies() {
-            localStorage.setItem('brandcal_cookies_accepted', 'true');
+            localStorage.setItem('ChronoWavel_cookies_accepted', 'true');
             document.getElementById('cookie-banner').style.display = 'none';
         }
     </script>

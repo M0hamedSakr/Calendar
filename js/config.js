@@ -3,18 +3,18 @@
  */
 
 export const APP_CONFIG = {
-    name: 'BrandCal',
+    name: 'ChronoWavel',
     version: '1.0.0',
-    apiUrl: 'https://api.brandcal.com',
+    apiUrl: 'https://api.ChronoWavel.com',
     environment: 'development'
 };
 
 export const STORAGE_KEYS = {
-    USER: 'brandcal_user',
-    EVENTS: 'brandcal_events',
-    THEME: 'brandcal_theme',
-    SETTINGS: 'brandcal_settings',
-    AUTH_TOKEN: 'brandcal_token'
+    USER: 'ChronoWavel_user',
+    EVENTS: 'ChronoWavel_events',
+    THEME: 'ChronoWavel_theme',
+    SETTINGS: 'ChronoWavel_settings',
+    AUTH_TOKEN: 'ChronoWavel_token'
 };
 
 export const EVENT_COLORS = {

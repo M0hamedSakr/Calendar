@@ -18,7 +18,7 @@ export function initFooter() {
                                 <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" fill="none" stroke-width="2"/>
                                 <path d="M3 9h18M8 2v4M16 2v4" stroke="currentColor" stroke-width="2"/>
                             </svg>
-                            BrandCal
+                            ChronoWavel
                         </div>
                         <p>Smart calendar and scheduling platform for modern teams and individuals.</p>
                         <div class="footer-social">
@@ -90,7 +90,7 @@ export function initFooter() {
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>&copy; ${currentYear} BrandCal. All rights reserved.</p>
+                    <p>&copy; ${currentYear} ChronoWavel. All rights reserved.</p>
                     <div class="footer-bottom-links">
                         <a href="terms.html">Terms</a>
                         <a href="privacy.html">Privacy</a>

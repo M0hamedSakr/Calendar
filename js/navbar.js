@@ -20,7 +20,7 @@ export function initNavbar() {
                         <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" fill="none" stroke-width="2"/>
                         <path d="M3 9h18M8 2v4M16 2v4" stroke="currentColor" stroke-width="2"/>
                     </svg>
-                    BrandCal
+                    ChronoWave 
                 </a>
                 
                 <button class="mobile-menu-toggle" id="mobile-toggle">

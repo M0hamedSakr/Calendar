@@ -314,7 +314,7 @@ function exportCalendar() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `brandcal-export-${Date.now()}.json`;
+    a.download = `ChronoWavel-export-${Date.now()}.json`;
     a.click();
     
     showNotification('Calendar exported successfully!', 'success');
