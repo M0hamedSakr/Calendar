@@ -3212,3 +3212,17 @@ input:checked + .toggle-slider:before {
         color: black;
     }
 }
+.team-card:hover {
+    transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .team-card {
+        padding: 1.5rem;
+    }
+}
